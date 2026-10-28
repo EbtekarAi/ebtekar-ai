@@ -144,6 +144,7 @@ import os, anthropic
 client = anthropic.Anthropic(
     api_key=os.environ["EBTEKAR_API_KEY"],
     base_url="https://ebtekarai.ir/api/developer-gateway",
+    default_headers={"User-Agent": "Ebtekar-Client/1.0"},
 )
 msg = client.messages.create(
     model="ebtekar-smart",
@@ -187,6 +188,19 @@ flowchart LR
     F -->|stream / JSON| A
     B -.-> G["Usage log & billing"]
 ```
+
+<br>
+
+## 🧩 Ecosystem
+
+| Repository | What's inside |
+|---|---|
+| 🍳 [**ebtekar-cookbook**](https://github.com/EbtekarAi/ebtekar-cookbook) | 10 copy-paste recipes: streaming, tools, vision, JSON output, retries … |
+| 🧾 [**openapi**](https://github.com/EbtekarAi/openapi) | OpenAPI 3.1 spec and a Postman collection |
+| 🚀 [**getting-started**](https://github.com/EbtekarAi/getting-started) | Minimal backends in Node.js, FastAPI and PHP |
+| 💬 [**chat-ui**](https://github.com/EbtekarAi/chat-ui) | RTL web chat with a server-side proxy that keeps your key private |
+| ⌨️ [**terminal-chatbot**](https://github.com/EbtekarAi/terminal-chatbot) | Chat with any Ebtekar model from your terminal |
+| ✈️ [**telegram-bot-starter**](https://github.com/EbtekarAi/telegram-bot-starter) | Launch an AI assistant bot on Telegram |
 
 <br>
 

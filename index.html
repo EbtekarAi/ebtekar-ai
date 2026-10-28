@@ -284,6 +284,7 @@ html[lang=fa] [data-en],html[lang=en] [data-fa]{display:none!important}
 client = anthropic.Anthropic(
     api_key=os.environ[<span class="s">"EBTEKAR_API_KEY"</span>],
     base_url=<span class="s">"https://ebtekarai.ir/api/developer-gateway"</span>,
+    default_headers={"User-Agent": "Ebtekar-Client/1.0"},
 )
 
 msg = client.messages.create(

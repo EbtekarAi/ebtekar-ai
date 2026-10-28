@@ -135,6 +135,7 @@ import anthropic
 client = anthropic.Anthropic(
     api_key=os.environ["EBTEKAR_API_KEY"],
     base_url="https://ebtekarai.ir/api/developer-gateway",
+    default_headers={"User-Agent": "Ebtekar-Client/1.0"},
 )
 
 message = client.messages.create(
@@ -496,6 +497,12 @@ claude
 <summary><b>قالب OpenAI (<code>/chat/completions</code>) پشتیبانی می‌شود؟</b></summary>
 
 خیر. درگاه عمومی قالب **Anthropic Messages** (`/v1/messages`) را دارد. از SDKهای Anthropic استفاده کنید یا همان JSON بالا را با هر کلاینت HTTP بفرستید.
+</details>
+
+<details>
+<summary><b>چرا نمونه‌های پایتون یک <code>User-Agent</code> سفارشی می‌فرستند؟</b></summary>
+
+بعضی فایروال‌های میزبانی درخواست‌هایی را که User-Agent آن‌ها کلمهٔ `python` دارد رد می‌کنند، و مقدار پیش‌فرض SDK پایتون `Anthropic/Python …` است. تنظیم `default_headers={"User-Agent": "Ebtekar-Client/1.0"}` جلوی خطای غیرمنتظرهٔ `403` را می‌گیرد. ضرری ندارد؛ آن را در کدتان نگه دارید.
 </details>
 
 <details>

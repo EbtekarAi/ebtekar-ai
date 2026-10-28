@@ -119,6 +119,7 @@ import anthropic
 client = anthropic.Anthropic(
     api_key=os.environ["EBTEKAR_API_KEY"],
     base_url="https://ebtekarai.ir/api/developer-gateway",
+    default_headers={"User-Agent": "Ebtekar-Client/1.0"},
 )
 
 message = client.messages.create(
@@ -430,6 +431,12 @@ Prefer Ebtekar's own terminal assistant? See the **Ebtekar Code** page on the we
 <summary><b>Is the OpenAI <code>/chat/completions</code> format supported?</b></summary>
 
 No. The public gateway uses the **Anthropic Messages** format (`/v1/messages`). Use an Anthropic SDK, or send the JSON shown above from any HTTP client.
+</details>
+
+<details>
+<summary><b>Why do the Python samples set a custom <code>User-Agent</code>?</b></summary>
+
+Some hosting firewalls reject requests whose User-Agent contains the word `python`, and the Python SDK's default is `Anthropic/Python …`. Setting `default_headers={"User-Agent": "Ebtekar-Client/1.0"}` avoids an unexpected `403`. It's harmless, so keep it in your code.
 </details>
 
 <details>

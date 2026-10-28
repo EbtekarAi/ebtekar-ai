@@ -6,6 +6,7 @@ import anthropic
 client = anthropic.Anthropic(
     api_key=os.environ["EBTEKAR_API_KEY"],
     base_url="https://ebtekarai.ir/api/developer-gateway",
+    default_headers={"User-Agent": "Ebtekar-Client/1.0"},
 )
 
 with client.messages.stream(
